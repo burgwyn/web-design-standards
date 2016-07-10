@@ -2,11 +2,13 @@
 // Do not modify.
 // These variables can be modified in _variables.scss
 
+// scss-lint:
+
 // Typography
 $em-base:             10px; // default is already defined in bourbon
-$base-font-size:      rem(16px) !default;
+$base-font-size:      rem(17px) !default;
 $small-font-size:     rem(14px) !default;
-$lead-font-size:      rem(22px) !default;
+$lead-font-size:      rem(20px) !default;
 $title-font-size:     rem(52px) !default;
 $h1-font-size:        rem(40px) !default;
 $h2-font-size:        rem(30px) !default;
@@ -44,9 +46,10 @@ $color-secondary-lightest:   #f9dede !default; // lighten($color-secondary, 90%)
 
 $color-white:                #ffffff !default;
 $color-base:                 #212121 !default;
+$color-black:                #000000 !default;
 
 $color-gray-dark:            #323a45 !default;
-$color-gray:                 #205493 !default; // lighten($color-gray-dark, 20%)
+$color-gray:                 #5b616b !default; // lighten($color-gray-dark, 20%)
 $color-gray-medium:          #757575 !default; // lightest gray that passes color contrast
 $color-gray-light:           #aeb0b5 !default; // lighten($color-gray-dark, 60%)
 $color-gray-lighter:         #d6d7d9 !default; // lighten($color-gray-dark, 80%)
@@ -74,6 +77,8 @@ $color-cool-blue-lightest:   #dce4ef !default; // lighten($color-cool-blue, 90%)
 $color-focus:                #3e94cf !default;
 $color-visited:              #4c2c92 !default;
 
+$color-shadow:               rgba(#000, 0.3) !default;
+
 
 // Mobile First Breakpoints
 $small-screen:      481px !default;
@@ -88,6 +93,6 @@ $site-margins:      3rem !default;
 $article-max-width: 600px !default;
 $input-max-width:   46rem !default;
 $border-radius:     rem(3px) !default;
-$box-shadow:        0 0 2px rgba(#000, 0.3) !default;
+$box-shadow:        0 0 2px $color-shadow !default;
 $focus-shadow:      0 0 3px $color-focus, 0 0 7px $color-focus !default;
 $grid-margins:      3rem !default;

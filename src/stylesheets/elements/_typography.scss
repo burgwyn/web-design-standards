@@ -15,12 +15,11 @@ p {
 
 a {
   color: $color-primary;
-  text-decoration: none;
+  text-decoration: underline;
 
-  &:hover, 
+  &:hover,
   &:active {
     color: $color-primary-darker;
-    text-decoration: underline;
   }
 
   &:visited {
@@ -33,7 +32,43 @@ a {
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+@mixin external-link($external-link, $external-link-hover) {
+  &::after {
+    background: url('../img/#{$external-link}.png') no-repeat 0 0;
+    background: url('../img/#{$external-link}.svg') no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: 0.65em;
+    margin-bottom: -1px;
+    margin-left: 4px;
+    width: 0.65em;
+  }
+
+  &:hover::after {
+    background-image: url('../img/#{$external-link-hover}.png');
+    background-image: url('../img/#{$external-link-hover}.svg');
+  }
+}
+
+// External link consider "effortless style approach":
+// [href^="http:"]:not([href*="my-domain.com"])
+// [href^="https:"]:not([href*="my-domain.com"])
+
+.usa-external_link {
+  @include external-link(external-link, external-link-hover);
+}
+
+.usa-external_link-alt {
+  @include external-link(external-link-alt, external-link-alt-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   clear: both;
   font-family: $font-serif;
   line-height: $heading-line-height;
@@ -41,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 1.5em;
 }
 
-// Create heading mixins 
+// Create heading mixins
 
 @mixin title {
   font-size: $title-font-size;
@@ -101,16 +136,16 @@ h5 {
 }
 
 h6 {
-  @include h6(); 
+  @include h6();
 }
 
 // Remove user agent styles
 
-cite, 
-var, 
-address, 
+cite,
+var,
+address,
 dfn {
- font-style: normal;
+  font-style: normal;
 }
 
 // Custom typography
@@ -118,35 +153,34 @@ dfn {
 .usa-content {
   p {
     max-width: $text-max-width;
-  }  
+  }
 }
 
 .usa-content-list {
   max-width: $text-max-width;
 }
 
-p, 
-.usa-content-list {
-  a {
-    text-decoration: underline;
-  }
-}
-
 .usa-sans {
-  p, a, li, span {
+  p,
+  a,
+  li,
+  span {
     font-family: $font-sans;
+  }
+
+  a {
+    border-bottom: none;
+    font-weight: $font-bold;
   }
 }
 
 .usa-serif {
-  p, a, li, span {
+  p,
+  a,
+  li,
+  span {
     font-family: $font-serif;
   }
-}
-
-.usa-sans a {
-  border-bottom: none;
-  font-weight: $font-bold;
 }
 
 .usa-display {
@@ -191,13 +225,14 @@ p,
 .usa-background-dark {
   background-color: $color-gray-dark;
 
-  p, span {
+  p,
+  span {
     color: $color-white;
   }
 
   a {
     color: $color-gray-lighter;
-    
+
     &:hover {
       color: $color-white;
     }
